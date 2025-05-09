@@ -1,7 +1,7 @@
 // src/data-source.ts
 import { DataSource } from 'typeorm';
 import * as dotenv from 'dotenv';
-import { Category } from './src/categories/entities/category.entity';
+import { Category } from './categories/entities/category.entity';
 
 dotenv.config();
 

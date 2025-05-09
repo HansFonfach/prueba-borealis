@@ -20,5 +20,18 @@ services:
       timeout: 5s
       retries: 5
 
+  app:
+    build: .
+    container_name: nestjs_app
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+    depends_on:
+      - postgres
+    volumes:
+      - .:/app
+    command: ["npm", "run", "start:prod"]
+
 volumes:
   pgdata:
